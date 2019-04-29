@@ -6,10 +6,11 @@ import { UserRoutingModule } from './user-routing.module';
 
 import * as fromViews from './views';
 import * as fromServices from './services';
+import * as fromGuards from './guards';
 
 @NgModule({
     declarations: [...fromViews.views],
     imports: [CommonModule, ReactiveFormsModule, UserRoutingModule],
-    providers: [fromServices.services],
+    providers: [...fromServices.services, ...fromGuards.guards],
 })
 export class UserModule {}

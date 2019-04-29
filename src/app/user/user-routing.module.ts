@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import * as formViews from './views';
+import * as fromGuards from './guards';
 
 const routes: Routes = [
     {
@@ -14,6 +15,7 @@ const routes: Routes = [
     {
         path: 'edit/:userId',
         component: formViews.UserCuComponent,
+        canActivate: [fromGuards.UsersGuard],
     },
 ];
 
