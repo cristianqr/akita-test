@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../../services';
+import { Observable } from 'rxjs';
+import { User } from '@app/shared/models';
+import { UsersQuery } from '@app/state/queries';
 
 @Component({
     selector: 'app-users',
@@ -6,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-    constructor() {}
+    users$: Observable<User[]>;
+    constructor(private userDataService: UserDataService, private usersQuery: UsersQuery) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.userDataService.getUsers().subscribe();
+
+        this.users$ = this.usersQuery.selectAll();
+    }
 }

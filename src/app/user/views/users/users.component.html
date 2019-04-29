@@ -1,3 +1,18 @@
-<p>
-    users works!
-</p>
+<table border="1" width="100%">
+    <thead>
+        <tr>
+            <th>Nro.</th>
+            <th>Nombres</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users$ | async">
+            <td>{{ 1 }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.firstSurname }}</td>
+            <td>{{ user.lastSurname }}</td>
+        </tr>
+    </tbody>
+</table>
