@@ -1,0 +1,18 @@
+<form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" />
+    </div>
+
+    <div class="form-group">
+        <label>First Surname</label>
+        <input type="text" class="form-control" formControlName="firstSurname" />
+    </div>
+
+    <div class="form-group">
+        <label>Last Surname</label>
+        <input type="text" class="form-control" formControlName="lastSurname" />
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" /> &nbsp;
+    <input type="button" value="Cancel" class="btn btn-secondary" (click)="cancel()" />
+</form>

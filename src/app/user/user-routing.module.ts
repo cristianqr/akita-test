@@ -7,6 +7,14 @@ const routes: Routes = [
         path: '',
         component: formViews.UsersComponent,
     },
+    {
+        path: 'new',
+        component: formViews.UserCuComponent,
+    },
+    {
+        path: 'edit/:userId',
+        component: formViews.UserCuComponent,
+    },
 ];
 
 @NgModule({

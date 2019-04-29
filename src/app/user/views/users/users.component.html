@@ -1,18 +1,33 @@
-<table border="1" width="100%">
-    <thead>
-        <tr>
-            <th>Nro.</th>
-            <th>Nombres</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users$ | async">
-            <td>{{ 1 }}</td>
-            <td>{{ user.firstName }}</td>
-            <td>{{ user.firstSurname }}</td>
-            <td>{{ user.lastSurname }}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="row">
+    <div class="col">
+        <button class="btn btn-primary" (click)="newUser()">New</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>Nro.</th>
+                    <th>Nombres</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users$ | async">
+                    <td>{{ 1 }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.firstSurname }}</td>
+                    <td>{{ user.lastSurname }}</td>
+                    <td>
+                        <button (click)="editUser(user)" class="btn btn-success">Edit</button> &nbsp;
+                        <button (click)="deleteUser(user)" class="btn btn-danger">Delete</button>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

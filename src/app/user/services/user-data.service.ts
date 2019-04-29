@@ -16,4 +16,20 @@ export class UserDataService {
             }),
         );
     }
+
+    getUserById(userId: any): Observable<any> {
+        return this.http.get<User>(`http://localhost:3000/users/${userId}`);
+    }
+
+    saveUser(user: User): Observable<any> {
+        return this.http.post<User>('http://localhost:3000/users', user);
+    }
+
+    updateUser(user: User): Observable<any> {
+        return this.http.put<User>('http://localhost:3000/users', user);
+    }
+
+    deleteUser(userId: any): Observable<any> {
+        return this.http.delete<User>(`http://localhost:3000/users/${userId}`);
+    }
 }
