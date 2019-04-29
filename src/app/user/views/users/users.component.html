@@ -1,8 +1,24 @@
-<div class="row">
-    <div class="col">
-        <button class="btn btn-primary" (click)="newUser()">New</button>
+<form [formGroup]="userSearcherForm" (ngSubmit)="searchUser()">
+    <div class="row">
+        <div class="col-2">
+            <label>First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" />
+        </div>
+        <div class="col-2">
+            <label>First Surname</label>
+            <input type="text" class="form-control" formControlName="firstSurname" />
+        </div>
+        <div class="col-2">
+            <label>Last Surname</label>
+            <input type="text" class="form-control" formControlName="lastSurname" />
+        </div>
+        <div class="col-2">
+            <input type="submit" value="Search" class="btn btn-primary" /> &nbsp;
+            <input type="button" value="New" class="btn btn-secondary" (click)="newUser()" />
+        </div>
     </div>
-</div>
+</form>
+<br />
 <div class="row">
     <div class="col">
         <table border="1" width="100%">
@@ -16,8 +32,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users$ | async">
-                    <td>{{ 1 }}</td>
+                <tr *ngFor="let user of users$ | async; let i = index">
+                    <td>{{ i + 1 }}</td>
                     <td>{{ user.firstName }}</td>
                     <td>{{ user.firstSurname }}</td>
                     <td>{{ user.lastSurname }}</td>
@@ -25,7 +41,6 @@
                         <button (click)="editUser(user)" class="btn btn-success">Edit</button> &nbsp;
                         <button (click)="deleteUser(user)" class="btn btn-danger">Delete</button>
                     </td>
-                    <td></td>
                 </tr>
             </tbody>
         </table>

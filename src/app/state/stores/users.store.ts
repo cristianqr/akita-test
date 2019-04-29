@@ -7,6 +7,7 @@ export interface UsersState extends EntityState<User> {
         searcher: {
             firstName?: string;
             fistSurname?: string;
+            lastSurname?: string;
         };
     };
 }
